@@ -189,7 +189,7 @@ class Component extends App{
 			`	      
 		<div class="header clearfix">
 		<br>
-            <nav class="navbar navbar-light navbar-fixed-top "style="background-color:#641E16" >
+            <nav class="navbar navbar-light navbar-fixed-top "style="background-color:#400000" >
             	<a class="navbar-brand" href="#" onclick="component.showLandingPage()">
             	<img class="decode-logo" src="img/decode.png"height=50 width=50  />
               <span class="sr-only">(current)</span></a></a>
@@ -253,7 +253,7 @@ class Component extends App{
 				</div>
 
 				<div id="readpage" class="row marketing">
-					<div class="col col-sm-12">
+					<div class="col col-sm-5">
 						<h1>HERO SELECTION</h1>
 						<table id="movieList" class="table">
 
@@ -278,7 +278,7 @@ class Component extends App{
 				
           <footer class="footer">
           <div>
-			<nav class="navbar navbar-dark navbar-bottom bg-inverse ">
+			<nav class="navbar navbar-light navbar-bottom "style="background-color:#400000" >
             	<p class="p float-xs-right" >&copy; DOTA2 2016 </p>
               <form class="form-inline navbar-form pull-right"/>
             </nav>            
@@ -330,12 +330,12 @@ class Component extends App{
 				    </div>
 				    <div class="media-body" id="movieDetailsInfo">
 				        <h4 class="media-heading">${this.movies[key].Title}</h4>
-				        
-				        
-				        ROLE: ${this.movies[key].Year}<br>
-						DESCRIPTION: ${this.movies[key].Director}<br>
-						LUXURY ITEMS: <br><img src="${this.movies[key].Actors}" height=176 width=255/></p>
-						</p>
+				    <p>	
+				        <b>ROLE: </b>${this.movies[key].Year}<br>
+						<b>DESCRIPTION:</b>${this.movies[key].Director}<br>
+					    <b>LUXURY ITEMS:</br><img src="${this.movies[key].Actors}" height=176 width=255/>
+
+					</p>
 						<center>
 						<button class="btn btn-success" onclick="component.movieUpdate(${key})">Update</button>
 						<button class="btn btn-danger" onclick="component.deleteMovie(${key})">Delete</button>
@@ -351,15 +351,17 @@ class Component extends App{
 
 	movieCreate(){
 		this.render(
-			`
-				<h1>Movie Create</h1>
-				Hero: <input class="form-control" id="newTitle" type="" placeholder="Enter Hero Name" /><br/>
+			`	
+			<div class="col col-sm-6">
+				<h1>Add hero</h1>
+				<b>Hero: <input class="form-control" id="newTitle" type="" placeholder="Enter Hero Name" /><br/>
 				Role: <input class="form-control" id="newYear" type="" placeholder="Enter Role" /><br/>
 				Description: <input class="form-control" id="newDirector" type="" placeholder="Enter Description" /><br/>
 				Hero Images: <input class="form-control" id="newPoster" type="" placeholder=".png, .jpg Files Only" /><br/>
 				Hero Logo: <input class="form-control" id="newImages" type="" placeholder=".png, .jpg Files Only" /><br/>
 				Hero Item: <input class="form-control" id="newActors" type="" placeholder=".png, .jpg Files Only" /><br/>
 				<button class="btn btn-primary" onclick="component.createMovie()">Create</button>
+			</div>
 			`,document.getElementById('movieCreate'));
 	}
 
